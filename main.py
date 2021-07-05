@@ -54,6 +54,11 @@ id_ent = Entry(root)
 id_ent.config()
 id_ent.pack()
 
+# Buttons
+register_btn = Button(root, text="Register")
+register_btn.config()
+register_btn.pack()
+
 
 # Run the program
 root.mainloop()
