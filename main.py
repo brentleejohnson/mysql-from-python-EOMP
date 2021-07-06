@@ -9,7 +9,7 @@ from tkinter import PhotoImage
 
 root = tk.Tk()
 root.title("Registration")
-root.geometry("550x350")
+root.geometry("550x600")
 root.config(bg="#081C15")
 # root.wm_attributes('-type', 'black')
 
@@ -25,50 +25,57 @@ title_lbl = Label(root, text="Registration", font=("Garuda", 18))
 title_lbl.config(bg="white", fg="#144552")
 title_lbl.pack()
 
+# Life Choices Academy Logo
+lifechoices_logo = PhotoImage(file="lifechoiceslogo.png")
+lifechoices_logo = lifechoices_logo.subsample(2)
+lifechoices_logo_lbl = Label(root, image=lifechoices_logo, width=400, height=150)
+lifechoices_logo_lbl.config(bg="black")
+lifechoices_logo_lbl.place(x=75, y=100)
+
 # Name
 name_lbl = Label(root, text="Name", font=("Garuda", 15))
 name_lbl.config(bg="#144552", fg="white")
-name_lbl.place(x=90, y=70)
+name_lbl.place(x=90, y=320)
 
 name_ent = Entry(root)
 name_ent.config(bg="#144552", fg="white")
-name_ent.place(x=280, y=80)
+name_ent.place(x=280, y=335)
 
 # Surname
 surname_lbl = Label(root, text="Surname", font=("Garuda", 15))
 surname_lbl.config(bg="#144552", fg="white")
-surname_lbl.place(x=90, y=110)
+surname_lbl.place(x=90, y=360)
 
 surname_ent = Entry(root)
 surname_ent.config(bg="#144552", fg="white")
-surname_ent.place(x=280, y=120)
+surname_ent.place(x=280, y=375)
 
 # Phone Number
 phone_lbl = Label(root, text="Phone Number", font=("Garuda", 15))
 phone_lbl.config(bg="#144552", fg="white")
-phone_lbl.place(x=90, y=150)
+phone_lbl.place(x=90, y=400)
 
 phone_ent = Entry(root)
 phone_ent.config(bg="#144552", fg="white")
-phone_ent.place(x=280, y=160)
+phone_ent.place(x=280, y=415)
 
 # ID Number
 id_lbl = Label(root, text="ID Number", font=("Garuda", 15))
 id_lbl.config(bg="#144552", fg="white")
-id_lbl.place(x=90, y=190)
+id_lbl.place(x=90, y=440)
 
 id_ent = Entry(root)
 id_ent.config(bg="#144552", fg="white")
-id_ent.place(x=280, y=200)
+id_ent.place(x=280, y=455)
 
 # Buttons
 register_btn = Button(root, text="Register")
 register_btn.config(bg="#144552", fg="white")
-register_btn.place(x=40, y=300)
+register_btn.place(x=40, y=550)
 
 exit_btn = Button(root, text="Exit", command=exit)
 exit_btn.config(bg="#144552", fg="white")
-exit_btn.place(x=440, y=300)
+exit_btn.place(x=440, y=550)
 
 
 # Run the program
