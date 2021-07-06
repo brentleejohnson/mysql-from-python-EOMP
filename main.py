@@ -14,7 +14,7 @@ root.config(bg="#081C15")
 # root.wm_attributes('-type', 'black')
 
 # Background Image
-bg_img = PhotoImage(file="background2.png")
+bg_img = PhotoImage(file="background.png")
 bg_img = bg_img.subsample(5)
 bg_img_lbl = Label(root, image=bg_img)
 bg_img_lbl.place(x=0, y=0)
