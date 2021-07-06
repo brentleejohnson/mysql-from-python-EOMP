@@ -33,13 +33,15 @@ id_ent.config(bg="#144552", fg="white")
 id_ent.place(x=280, y=215)
 
 # Buttons
-register_btn = Button(root, text="Log In")
-register_btn.config(bg="#144552", fg="white")
-register_btn.place(x=40, y=330)
-
-login_btn = Button(root, text="Log Out")
+# Log In Button
+login_btn = Button(root, text="Log In")
 login_btn.config(bg="#144552", fg="white")
-login_btn.place(x=250, y=330)
+login_btn.place(x=40, y=330)
+
+# Log Out Button
+logout_btn = Button(root, text="Log Out")
+logout_btn.config(bg="#144552", fg="white")
+logout_btn.place(x=250, y=330)
 
 # Exit button
 exit_btn = Button(root, text="Exit", command=exit)
