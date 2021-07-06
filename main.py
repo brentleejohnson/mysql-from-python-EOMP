@@ -69,17 +69,29 @@ id_ent.config(bg="#144552", fg="white")
 id_ent.place(x=280, y=455)
 
 
-# Functions
+# Buttons
+# Register button
 def register():
     root.destroy()
     import next_of_kin
 
 
-# Buttons
 register_btn = Button(root, text="Register", command=register)
 register_btn.config(bg="#144552", fg="white")
 register_btn.place(x=40, y=550)
 
+
+# Login
+def login():
+    root.destroy()
+    import login
+
+
+login_btn = Button(root, text="Login", command=login)
+login_btn.config(bg="#144552", fg="white")
+login_btn.place(x=250, y=550)
+
+# Exit button
 exit_btn = Button(root, text="Exit", command=exit)
 exit_btn.config(bg="#144552", fg="white")
 exit_btn.place(x=440, y=550)
