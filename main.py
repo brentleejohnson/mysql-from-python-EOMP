@@ -68,8 +68,15 @@ id_ent = Entry(root)
 id_ent.config(bg="#144552", fg="white")
 id_ent.place(x=280, y=455)
 
+
+# Functions
+def register():
+    root.destroy()
+    import next_of_kin
+
+
 # Buttons
-register_btn = Button(root, text="Register")
+register_btn = Button(root, text="Register", command=register)
 register_btn.config(bg="#144552", fg="white")
 register_btn.place(x=40, y=550)
 
