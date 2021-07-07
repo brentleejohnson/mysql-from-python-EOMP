@@ -7,12 +7,6 @@ from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import PhotoImage
-import pymysql
-
-mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
-                               database='lifechoicesonline', auth_plugin='mysql_native_password')
-
-mycursor = mydb.cursor()
 
 
 root = tk.Tk()
@@ -80,8 +74,14 @@ id_ent.place(x=280, y=455)
 # Buttons
 # Register button
 def register():
-    root.destroy()
-    import next_of_kin
+    if username_ent.get() == "" or password_ent.get() == "" or phone_ent.get() == "" or id_ent.get() == "":
+        messagebox.showerror("Error", "All Fields Are Required", parent=root)
+    else:
+        try:
+            mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                               database='lifechoicesonline', auth_plugin='mysql_native_password')
+
+        mycursor = mydb.cursor()
 
 
 register_btn = Button(root, text="Register", command=register)
