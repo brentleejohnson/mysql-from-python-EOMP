@@ -2,9 +2,17 @@
 # MySQL With Python - EOMP
 
 
+import mysql.connector
 from tkinter import *
 import tkinter as tk
+from tkinter import messagebox
 from tkinter import PhotoImage
+import pymysql
+
+mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
+                               database='lifechoicesonline', auth_plugin='mysql_native_password')
+
+mycursor = mydb.cursor()
 
 
 root = tk.Tk()
@@ -41,23 +49,32 @@ username_ent = Entry(root)
 username_ent.config(bg="#144552", fg="white")
 username_ent.place(x=280, y=335)
 
+# Password
+password_lbl = Label(root, text="Password", font=("Garuda", 15))
+password_lbl.config(bg="#144552", fg="white")
+password_lbl.place(x=90, y=360)
+
+password_ent = Entry(root)
+password_ent.config(bg="#144552", fg="white")
+password_ent.place(x=280, y=375)
+
 # Phone Number
 phone_lbl = Label(root, text="Phone Number", font=("Garuda", 15))
 phone_lbl.config(bg="#144552", fg="white")
-phone_lbl.place(x=90, y=360)
+phone_lbl.place(x=90, y=400)
 
 phone_ent = Entry(root)
 phone_ent.config(bg="#144552", fg="white")
-phone_ent.place(x=280, y=375)
+phone_ent.place(x=280, y=415)
 
 # ID Number
 id_lbl = Label(root, text="ID Number", font=("Garuda", 15))
 id_lbl.config(bg="#144552", fg="white")
-id_lbl.place(x=90, y=400)
+id_lbl.place(x=90, y=440)
 
 id_ent = Entry(root)
 id_ent.config(bg="#144552", fg="white")
-id_ent.place(x=280, y=415)
+id_ent.place(x=280, y=455)
 
 
 # Buttons
