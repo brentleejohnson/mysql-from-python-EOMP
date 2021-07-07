@@ -32,41 +32,32 @@ lifechoices_logo_lbl = Label(root, image=lifechoices_logo, width=400, height=150
 lifechoices_logo_lbl.config(bg="black")
 lifechoices_logo_lbl.place(x=75, y=100)
 
-# Name
-name_lbl = Label(root, text="Name", font=("Garuda", 15))
-name_lbl.config(bg="#144552", fg="white")
-name_lbl.place(x=90, y=320)
+# Username
+username_lbl = Label(root, text="Username", font=("Garuda", 15))
+username_lbl.config(bg="#144552", fg="white")
+username_lbl.place(x=90, y=320)
 
-name_ent = Entry(root)
-name_ent.config(bg="#144552", fg="white")
-name_ent.place(x=280, y=335)
-
-# Surname
-surname_lbl = Label(root, text="Surname", font=("Garuda", 15))
-surname_lbl.config(bg="#144552", fg="white")
-surname_lbl.place(x=90, y=360)
-
-surname_ent = Entry(root)
-surname_ent.config(bg="#144552", fg="white")
-surname_ent.place(x=280, y=375)
+username_ent = Entry(root)
+username_ent.config(bg="#144552", fg="white")
+username_ent.place(x=280, y=335)
 
 # Phone Number
 phone_lbl = Label(root, text="Phone Number", font=("Garuda", 15))
 phone_lbl.config(bg="#144552", fg="white")
-phone_lbl.place(x=90, y=400)
+phone_lbl.place(x=90, y=360)
 
 phone_ent = Entry(root)
 phone_ent.config(bg="#144552", fg="white")
-phone_ent.place(x=280, y=415)
+phone_ent.place(x=280, y=375)
 
 # ID Number
 id_lbl = Label(root, text="ID Number", font=("Garuda", 15))
 id_lbl.config(bg="#144552", fg="white")
-id_lbl.place(x=90, y=440)
+id_lbl.place(x=90, y=400)
 
 id_ent = Entry(root)
 id_ent.config(bg="#144552", fg="white")
-id_ent.place(x=280, y=455)
+id_ent.place(x=280, y=415)
 
 
 # Buttons
