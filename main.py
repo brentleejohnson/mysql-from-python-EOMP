@@ -91,8 +91,26 @@ login_btn.place(x=50, y=430)
 
 # Log Out Button
 def logout():
-    if username_ent.get() == "" or password_ent.get() == "":
-        messagebox.showerror("Error", "All Fields Are Required")
+    try:
+        mydb = mysql.connector.connect(user="lifechoices", password="@Lifechoices1234", host="127.0.0.1",
+                                               database="lifechoicesonline", auth_plugin="mysql_native_password")
+
+        mycursor = mydb.cursor()
+
+        if username_ent.get() == "" or password_ent.get() == "":
+            messagebox.showerror("Error", "All Fields Are Required")
+        else:
+            mycursor.execute('select * from Users where username=%s and password=%s',
+                             (username_ent.get(), password_ent.get()))
+
+            row = mycursor.fetchone()
+            if row is None:
+                messagebox.showerror("Error", "Invalid Username And Password")
+            else:
+                messagebox.showinfo(message="Logout Successful! Enjoy Your Day!")
+                root.destroy()
+    except ValueError:
+        messagebox.showerror("Error", "Something went wrong")
 
 
 logout_btn = Button(root, text="Log Out", cursor="hand2", command=logout)
