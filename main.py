@@ -2,8 +2,10 @@
 # MySQL With Python - EOMP
 
 
+import mysql.connector
 from tkinter import *
 import tkinter as tk
+from tkinter import messagebox
 from tkinter import PhotoImage
 
 
@@ -56,14 +58,44 @@ password_ent = Entry(root)
 password_ent.config(bg="#144552", fg="white")
 password_ent.place(x=280, y=335)
 
+
 # Buttons
 # Log In Button
-login_btn = Button(root, text="Log In", cursor="hand2")
+def login():
+    try:
+        mydb = mysql.connector.connect(user="lifechoices", password="@Lifechoices1234", host="127.0.0.1",
+                                               database="lifechoicesonline", auth_plugin="mysql_native_password")
+
+        mycursor = mydb.cursor()
+
+        if username_ent.get() == "" or password_ent.get() == "":
+            messagebox.showerror("Error", "All Fields Are Required")
+        else:
+            mycursor.execute('select * from Users where username=%s and password=%s',
+                             (username_ent.get(), password_ent.get()))
+
+            row = mycursor.fetchone()
+            if row is None:
+                messagebox.showerror("Error", "Invalid Username And Password")
+            else:
+                messagebox.showinfo(message="Login Successful! Enjoy Your Day!")
+                root.destroy()
+    except ValueError:
+        messagebox.showerror("Error", "Something went wrong")
+
+
+login_btn = Button(root, text="Log In", cursor="hand2", command=login)
 login_btn.config(bg="#144552", fg="white")
 login_btn.place(x=50, y=430)
 
+
 # Log Out Button
-logout_btn = Button(root, text="Log Out", cursor="hand2")
+def logout():
+    if username_ent.get() == "" or password_ent.get() == "":
+        messagebox.showerror("Error", "All Fields Are Required")
+
+
+logout_btn = Button(root, text="Log Out", cursor="hand2", command=logout)
 logout_btn.config(bg="#144552", fg="white")
 logout_btn.place(x=240, y=430)
 
