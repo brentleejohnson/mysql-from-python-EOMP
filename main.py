@@ -9,7 +9,7 @@ from tkinter import PhotoImage
 
 root = tk.Tk()
 root.title("Logging In/Out")
-root.geometry("550x450")
+root.geometry("550x500")
 root.config(bg="#081C15")
 # root.wm_attributes('-type', 'black')
 
@@ -27,39 +27,50 @@ lifechoices_logo_lbl = Label(root, image=lifechoices_logo, width=400, height=150
 lifechoices_logo_lbl.config(bg="black")
 lifechoices_logo_lbl.pack()
 
+
+# Register button
+def Register():
+    root.destroy()
+    import register
+
+
+register_btn = Button(root, text="Not Registered?", cursor="hand2", command=Register)
+register_btn.config(bg="#144552", fg="white", bd="0", font=("Garuda", 10))
+register_btn.pack()
+
 # Username
 username_lbl = Label(root, text="Username", font=("Garuda", 15))
 username_lbl.config(bg="#144552", fg="white")
-username_lbl.place(x=90, y=210)
+username_lbl.place(x=90, y=260)
 
 username_ent = Entry(root)
 username_ent.config(bg="#144552", fg="white")
-username_ent.place(x=280, y=225)
+username_ent.place(x=280, y=275)
 
 # Password
 password_lbl = Label(root, text="Password", font=("Garuda", 15))
 password_lbl.config(bg="#144552", fg="white")
-password_lbl.place(x=92, y=270)
+password_lbl.place(x=92, y=320)
 
 password_ent = Entry(root)
 password_ent.config(bg="#144552", fg="white")
-password_ent.place(x=280, y=285)
+password_ent.place(x=280, y=335)
 
 # Buttons
 # Log In Button
 login_btn = Button(root, text="Log In", cursor="hand2")
 login_btn.config(bg="#144552", fg="white")
-login_btn.place(x=50, y=380)
+login_btn.place(x=50, y=430)
 
 # Log Out Button
 logout_btn = Button(root, text="Log Out", cursor="hand2")
 logout_btn.config(bg="#144552", fg="white")
-logout_btn.place(x=240, y=380)
+logout_btn.place(x=240, y=430)
 
 # Exit button
 exit_btn = Button(root, text="Exit", cursor="hand2", command=exit)
 exit_btn.config(bg="#144552", fg="white")
-exit_btn.place(x=440, y=380)
+exit_btn.place(x=440, y=430)
 
 
 # Run the program

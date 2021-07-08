@@ -111,7 +111,6 @@ register_btn = Button(root, text="Register", command=register)
 register_btn.config(bg="#144552", fg="white")
 register_btn.place(x=240, y=550)
 
-
 # Exit button
 exit_btn = Button(root, text="Exit", command=exit)
 exit_btn.config(bg="#144552", fg="white")
