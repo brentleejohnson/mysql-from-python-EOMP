@@ -1,5 +1,7 @@
+import mysql.connector
 from tkinter import *
 import tkinter as tk
+from tkinter import messagebox
 
 
 root = tk.Tk()
@@ -43,8 +45,25 @@ phone_ent.place(x=240, y=430)
 # Buttons
 # Confirm button
 def confirm():
-    root.destroy()
-    import login
+    try:
+        mydb = mysql.connector.connect(user="lifechoices", password="@Lifechoices1234", host="127.0.0.1",
+                                       database="lifechoicesonline", auth_plugin="mysql_native_password")
+
+        mycursor = mydb.cursor()
+
+        if name_ent.get() == "" or phone_ent.get() == "":
+            messagebox.showerror("Error", "All Fields Are Required", parent=root)
+        else:
+            query1 = "insert into Next_of_kin (kin_name, kin_phone) values ('{}', '{}')".format(name_ent.get(),
+                                                                                          phone_ent.get())
+            mycursor.execute(query1)
+            mydb.commit()
+            messagebox.showinfo(message="Registration complete. Proceed to sign-in")
+            root.destroy()
+            import main
+
+    except ValueError:
+        messagebox.showerror("Error", "Something went wrong!")
 
 
 confirm_btn = Button(root, text="Confirm", font=("Garuda", 15), command=confirm)
@@ -55,12 +74,12 @@ confirm_btn.place(x=40, y=500)
 # Exit button
 def previous():
     root.destroy()
-    import main
+    import register
 
 
-exit_btn = Button(root, text="Exit", font=("Garuda", 15), command=previous)
-exit_btn.config(bg="#D9ED92", fg="#184E77")
-exit_btn.place(x=600, y=500)
+back_btn = Button(root, text="Back", font=("Garuda", 15), command=previous)
+back_btn.config(bg="#D9ED92", fg="#184E77")
+back_btn.place(x=590, y=500)
 
 
 # Run the program
