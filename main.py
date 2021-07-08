@@ -73,18 +73,31 @@ id_ent.place(x=280, y=455)
 
 # Buttons
 # Register button
-def register():
-    if username_ent.get() == "" or password_ent.get() == "" or phone_ent.get() == "" or id_ent.get() == "":
-        messagebox.showerror("Error", "All Fields Are Required", parent=root)
-    else:
-        try:
-            mydb = mysql.connector.connect(user='lifechoices', password='@Lifechoices1234', host='127.0.0.1',
-                               database='lifechoicesonline', auth_plugin='mysql_native_password')
+def Register():
+    try:
+        mydb = mysql.connector.connect(user="lifechoices", password="@Lifechoices1234", host="127.0.0.1",
+                                       database="lifechoicesonline", auth_plugin="mysql_native_password")
 
         mycursor = mydb.cursor()
 
+        if username_ent.get() == "" or password_ent.get() == "" or phone_ent.get() == "" or id_ent.get() == "":
+            messagebox.showerror("Error", "All Fields Are Required", parent=root)
+        else:
+            try:
+                query1 = "insert into Users (username, password, phonenumber, idnumber) values ('{}', '{}', '{}', '{}')".format(username_ent.get(),
+                                                                                                                                password_ent.get(), phone_ent.get(), id_ent.get())
+                mycursor.execute(query1)
+                mydb.commit()
+                messagebox.showinfo(message="Registration complete. Proceed to sign-in")
 
-register_btn = Button(root, text="Register", command=register)
+            except ValueError:
+                messagebox.showerror("Error", "Something went wrong!")
+    finally:
+        root.destroy()
+        import next_of_kin
+
+
+register_btn = Button(root, text="Register", command=Register)
 register_btn.config(bg="#144552", fg="white")
 register_btn.place(x=40, y=550)
 
