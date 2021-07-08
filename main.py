@@ -52,12 +52,12 @@ login_btn.config(bg="#144552", fg="white")
 login_btn.place(x=50, y=380)
 
 # Log Out Button
-logout_btn = Button(root, text="Log Out")
+logout_btn = Button(root, text="Log Out", cursor="hand2")
 logout_btn.config(bg="#144552", fg="white")
 logout_btn.place(x=240, y=380)
 
 # Exit button
-exit_btn = Button(root, text="Exit", command=exit)
+exit_btn = Button(root, text="Exit", cursor="hand2", command=exit)
 exit_btn.config(bg="#144552", fg="white")
 exit_btn.place(x=440, y=380)
 
