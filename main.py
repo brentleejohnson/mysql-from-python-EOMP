@@ -6,6 +6,7 @@ import mysql.connector
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
+import rsaidnumber
 from tkinter import PhotoImage
 
 
@@ -73,31 +74,34 @@ id_ent.place(x=280, y=455)
 
 # Buttons
 # Register button
-def Register():
+def register():
     try:
         mydb = mysql.connector.connect(user="lifechoices", password="@Lifechoices1234", host="127.0.0.1",
                                        database="lifechoicesonline", auth_plugin="mysql_native_password")
 
         mycursor = mydb.cursor()
 
+    # Id No Validation
         if username_ent.get() == "" or password_ent.get() == "" or phone_ent.get() == "" or id_ent.get() == "":
-            messagebox.showerror("Error", "All Fields Are Required", parent=root)
+            raise ValueError
+        elif len(id_ent.get()) < 13 or len(id_ent.get()) > 13:
+            messagebox.showerror(message="Id Number must be 13 digits")
         else:
-            try:
-                query1 = "insert into Users (username, password, phonenumber, idnumber) values ('{}', '{}', '{}', '{}')".format(username_ent.get(),
-                                                                                                                                password_ent.get(), phone_ent.get(), id_ent.get())
-                mycursor.execute(query1)
-                mydb.commit()
-                messagebox.showinfo(message="Registration complete. Proceed to sign-in")
+            query1 = "insert into Users (username, password, phonenumber, idnumber) values ('{}', '{}', '{}', '{}')".format(username_ent.get(),
+                                                                                                                            password_ent.get(),
+                                                                                                                            phone_ent.get(),
+                                                                                                                            id_ent.get())
+            mycursor.execute(query1)
+            mydb.commit()
+            messagebox.showinfo(message="Registration complete. Proceed to sign-in")
+            root.destroy()
+            import next_of_kin
 
-            except ValueError:
-                messagebox.showerror("Error", "Something went wrong!")
-    finally:
-        root.destroy()
-        import next_of_kin
+    except ValueError:
+        messagebox.showerror("Error", "All Fields Are Required")
 
 
-register_btn = Button(root, text="Register", command=Register)
+register_btn = Button(root, text="Register", command=register)
 register_btn.config(bg="#144552", fg="white")
 register_btn.place(x=40, y=550)
 
