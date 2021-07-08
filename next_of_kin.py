@@ -55,7 +55,7 @@ def confirm():
             messagebox.showerror("Error", "All Fields Are Required", parent=root)
         else:
             query1 = "insert into Next_of_kin (kin_name, kin_phone) values ('{}', '{}')".format(name_ent.get(),
-                                                                                          phone_ent.get())
+                                                                                                phone_ent.get())
             mycursor.execute(query1)
             mydb.commit()
             messagebox.showinfo(message="Registration complete. Proceed to sign-in")
