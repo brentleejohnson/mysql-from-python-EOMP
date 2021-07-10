@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 root = tk.Tk()
 root.title("Next of Kin")
-root.geometry("700x600")
+root.geometry("700x750")
 root.config()
 
 # Background Image
@@ -41,6 +41,15 @@ phone_ent = Entry(root)
 phone_ent.config(bg="#D9ED92", fg="#184E77", font=("Garuda", 15))
 phone_ent.place(x=240, y=430)
 
+# Kin of
+kin_lbl = Label(root, text="Kin of:", font=("Garuda", 20))
+kin_lbl.config(bg="#184E77", fg="#B5E48C")
+kin_lbl.place(x=315, y=500)
+
+kin_ent = Entry(root)
+kin_ent.config(bg="#D9ED92", fg="#184E77", font=("Garuda", 15))
+kin_ent.place(x=240, y=580)
+
 
 # Buttons
 # Confirm button
@@ -51,11 +60,12 @@ def confirm():
 
         mycursor = mydb.cursor()
 
-        if name_ent.get() == "" or phone_ent.get() == "":
+        if name_ent.get() == "" or phone_ent.get() == "" or kin_ent.get() == "":
             messagebox.showerror("Error", "All Fields Are Required", parent=root)
         else:
-            query1 = "insert into Next_of_kin (kin_name, kin_phone) values ('{}', '{}')".format(name_ent.get(),
-                                                                                                phone_ent.get())
+            query1 = "insert into Next_of_kin (kin_name, kin_phone, kin_of) values ('{}', '{}', '{}')".format(name_ent.get(),
+                                                                                                              phone_ent.get(),
+                                                                                                              kin_ent.get())
             mycursor.execute(query1)
             mydb.commit()
             messagebox.showinfo(message="Registration complete. Proceed to sign-in")
@@ -68,7 +78,7 @@ def confirm():
 
 confirm_btn = Button(root, text="Confirm", font=("Garuda", 15), command=confirm)
 confirm_btn.config(bg="#D9ED92", fg="#184E77")
-confirm_btn.place(x=40, y=500)
+confirm_btn.place(x=40, y=650)
 
 
 # Exit button
@@ -79,7 +89,7 @@ def previous():
 
 back_btn = Button(root, text="Back", font=("Garuda", 15), command=previous)
 back_btn.config(bg="#D9ED92", fg="#184E77")
-back_btn.place(x=590, y=500)
+back_btn.place(x=590, y=650)
 
 
 # Run the program
