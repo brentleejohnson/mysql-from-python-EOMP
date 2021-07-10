@@ -86,12 +86,16 @@ def register():
                                        database="lifechoicesonline", auth_plugin="mysql_native_password")
 
         mycursor = mydb.cursor()
+        mycursor.execute("select * from Users where username=%s", username_ent.get())
+        row = mycursor.fetchone()
 
     # Id No Validation
         if username_ent.get() == "" or password_ent.get() == "" or phone_ent.get() == "" or id_ent.get() == "":
             raise ValueError
         elif len(id_ent.get()) < 13 or len(id_ent.get()) > 13:
             messagebox.showerror(message="Id Number must be 13 digits")
+        elif row is not None:
+            messagebox.showerror("Error", "User already Exist,Please try with another Email")
         else:
             query1 = "insert into Users (username, password, phonenumber, idnumber) values ('{}', '{}', '{}', '{}')".format(username_ent.get(),
                                                                                                                             password_ent.get(),
