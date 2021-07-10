@@ -36,8 +36,8 @@ def Register():
     import register
 
 
-register_btn = Button(root, text="Not Registered?", cursor="hand2", command=Register)
-register_btn.config(bg="#144552", fg="white", bd="0", font=("Garuda", 10))
+register_btn = Button(root, text="Not Registered?", command=Register)
+register_btn.config(bg="#144552", fg="white", bd="0", font=("Garuda", 10), cursor="hand2")
 register_btn.pack()
 
 # Username
@@ -84,8 +84,8 @@ def login():
         messagebox.showerror("Error", "Something went wrong")
 
 
-login_btn = Button(root, text="Log In", cursor="hand2", command=login)
-login_btn.config(bg="#144552", fg="white")
+login_btn = Button(root, text="Log In", command=login)
+login_btn.config(bg="#144552", fg="white", cursor="hand2")
 login_btn.place(x=50, y=430)
 
 
@@ -113,13 +113,13 @@ def logout():
         messagebox.showerror("Error", "Something went wrong")
 
 
-logout_btn = Button(root, text="Log Out", cursor="hand2", command=logout)
-logout_btn.config(bg="#144552", fg="white")
+logout_btn = Button(root, text="Log Out", command=logout)
+logout_btn.config(bg="#144552", fg="white", cursor="hand2")
 logout_btn.place(x=240, y=430)
 
 # Exit button
-exit_btn = Button(root, text="Exit", cursor="hand2", command=exit)
-exit_btn.config(bg="#144552", fg="white")
+exit_btn = Button(root, text="Exit", command=exit)
+exit_btn.config(bg="#144552", fg="white", cursor="hand2")
 exit_btn.place(x=440, y=430)
 
 

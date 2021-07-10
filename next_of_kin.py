@@ -77,7 +77,7 @@ def confirm():
 
 
 confirm_btn = Button(root, text="Confirm", font=("Garuda", 15), command=confirm)
-confirm_btn.config(bg="#D9ED92", fg="#184E77")
+confirm_btn.config(bg="#D9ED92", fg="#184E77", cursor="hand2")
 confirm_btn.place(x=40, y=650)
 
 
@@ -88,7 +88,7 @@ def previous():
 
 
 back_btn = Button(root, text="Back", font=("Garuda", 15), command=previous)
-back_btn.config(bg="#D9ED92", fg="#184E77")
+back_btn.config(bg="#D9ED92", fg="#184E77", cursor="hand2")
 back_btn.place(x=590, y=650)
 
 

@@ -75,7 +75,7 @@ def previous():
 
 
 login_btn = Button(root, text="Back", command=previous)
-login_btn.config(bg="#144552", fg="white")
+login_btn.config(bg="#144552", fg="white", cursor="hand2")
 login_btn.place(x=40, y=550)
 
 
@@ -112,12 +112,12 @@ def register():
 
 
 register_btn = Button(root, text="Register", command=register)
-register_btn.config(bg="#144552", fg="white")
+register_btn.config(bg="#144552", fg="white", cursor="hand2")
 register_btn.place(x=240, y=550)
 
 # Exit button
 exit_btn = Button(root, text="Exit", command=exit)
-exit_btn.config(bg="#144552", fg="white")
+exit_btn.config(bg="#144552", fg="white", cursor="hand2")
 exit_btn.place(x=440, y=550)
 
 
