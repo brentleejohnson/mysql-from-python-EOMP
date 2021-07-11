@@ -116,5 +116,14 @@ exit_btn.config(bg="#144552", fg="white", cursor="hand2")
 exit_btn.place(x=440, y=550)
 
 
+# Admin
+def admin(event=None):
+    root.destroy()
+    import admin_login
+
+
+root.bind('<Control-a>', admin)
+
+
 # Run the program
 root.mainloop()

@@ -48,6 +48,17 @@ for data in users:
 # Placing the treeview
 tree.pack()
 
+# Buttons
+# Back button
+def back():
+    root.destroy()
+    import admin
+
+
+back_btn = Button(root, text="Back", command=back)
+back_btn.config(bg="#A4AC86", fg="#351C08", font=("Garuda", 15), cursor="hand2")
+back_btn.place(x=600, y=500)
+
 
 # Run the program
 root.mainloop()

@@ -123,6 +123,7 @@ exit_btn.config(bg="#144552", fg="white", cursor="hand2")
 exit_btn.place(x=440, y=430)
 
 
+# Admin
 def admin(event=None):
     root.destroy()
     import admin_login

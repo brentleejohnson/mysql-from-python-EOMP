@@ -92,5 +92,14 @@ back_btn.config(bg="#D9ED92", fg="#184E77", cursor="hand2")
 back_btn.place(x=590, y=650)
 
 
+# Admin
+def admin(event=None):
+    root.destroy()
+    import admin_login
+
+
+root.bind('<Control-a>', admin)
+
+
 # Run the program
 root.mainloop()
